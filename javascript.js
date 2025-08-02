@@ -53,7 +53,15 @@ class LinkedList {
     if (!current) return "Node not found";
     return current;
   }
-  pop() {}
+  pop() {
+    if (!this.head) return;
+    let current = this.head;
+    while (current.nextNode.nextNode !== null) {
+      current = current.nextNode;
+    }
+    current.nextNode = null;
+    return this;
+  }
   contains(value) {
     let current = this.head;
     while (current && current.value !== value) {
@@ -96,8 +104,9 @@ list.append("mouse");
 list.prepend("rat");
 // console.log(list.size());
 // console.log(list.getHead());
-console.log(list.tail());
+// console.log(list.tail());
 // console.log(list.at(0));
+// console.log(list.pop());
 // console.log(list.contains("dog"));
 // console.log(list.find("dog"));
 // console.log(list.toString());
