@@ -55,7 +55,16 @@ class LinkedList {
     if (current) return true;
     return false;
   }
-  find(value) {}
+  find(value) {
+    let current = this.head;
+    let index = 0;
+    while (current && current.value !== value) {
+      index++;
+      current = current.nextNode;
+    }
+    if (current) return index;
+    return null;
+  }
   toString() {}
 }
 
@@ -73,5 +82,6 @@ list.prepend("rat");
 // console.log(list.getHead());
 // console.log(list.at(0));
 console.log(list.contains("dog"));
+console.log(list.find("dog"));
 
 // console.log(list);
