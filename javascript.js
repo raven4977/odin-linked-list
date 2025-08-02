@@ -65,7 +65,16 @@ class LinkedList {
     if (current) return index;
     return null;
   }
-  toString() {}
+  toString() {
+    let concatString = "";
+    if (!this.head) return "";
+    let current = this.head;
+    while (current !== null) {
+      concatString += `(${current.value}) -> `;
+      current = current.nextNode;
+    }
+    return (concatString += "null");
+  }
 }
 
 const Node = (value = null, nextNode = null) => {
@@ -81,7 +90,8 @@ list.prepend("rat");
 // console.log(list.size());
 // console.log(list.getHead());
 // console.log(list.at(0));
-console.log(list.contains("dog"));
-console.log(list.find("dog"));
+// console.log(list.contains("dog"));
+// console.log(list.find("dog"));
+console.log(list.toString());
 
 // console.log(list);
