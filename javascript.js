@@ -31,9 +31,21 @@ class LinkedList {
     }
     return `List items: ${total}`;
   }
-  head() {}
+  getHead() {
+    return this.head;
+  }
   tail() {}
-  at(index) {}
+  at(index) {
+    if (index == 0) {
+      return this.head;
+    }
+    let current = this.head;
+    for (let i = 0; i < index; i++) {
+      current = current.nextNode;
+    }
+    if (!current) return 'Node not found';
+    return current;
+  }
   pop() {}
   contains(value) {}
   find(value) {}
@@ -50,6 +62,8 @@ list.append("dog");
 list.append("cat");
 list.append("mouse");
 list.prepend("rat");
-console.log(list.size());
+// console.log(list.size());
+// console.log(list.getHead());
+console.log(list.at(0));
 
-console.log(list);
+// console.log(list);
