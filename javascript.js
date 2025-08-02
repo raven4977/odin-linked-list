@@ -1,8 +1,16 @@
 class LinkedList {
-  constructor(list = {}) {
-    this.list = list;
+  constructor() {
+    this.head = null;
   }
-  append(value) {}
+  append(value) {
+    if (!this.head) {
+      this.head = Node(value);
+      return;
+    }
+    let current = this.head;
+    while (current.nextNode !== null) current = current.nextNode;
+    current.nextNode = Node(value);
+  }
   prepend(value) {}
   size() {}
   head() {}
@@ -17,3 +25,11 @@ class LinkedList {
 const Node = (value = null, nextNode = null) => {
   return { value, nextNode };
 };
+
+const list = new LinkedList();
+
+list.append("dog");
+list.append("cat");
+list.append("mouse");
+
+console.log(list);
