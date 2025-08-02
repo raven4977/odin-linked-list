@@ -19,7 +19,18 @@ class LinkedList {
     let currentHead = this.head;
     this.head = Node(value, currentHead);
   }
-  size() {}
+  size() {
+    if (!this.head) {
+      return "List items: 0";
+    }
+    let current = this.head;
+    let total = 1;
+    while (current.nextNode !== null) {
+      total++;
+      current = current.nextNode;
+    }
+    return `List items: ${total}`;
+  }
   head() {}
   tail() {}
   at(index) {}
@@ -39,5 +50,6 @@ list.append("dog");
 list.append("cat");
 list.append("mouse");
 list.prepend("rat");
+console.log(list.size());
 
 console.log(list);
