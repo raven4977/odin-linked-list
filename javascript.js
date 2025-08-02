@@ -34,7 +34,14 @@ class LinkedList {
   getHead() {
     return this.head;
   }
-  tail() {}
+  tail() {
+    if (!this.head) return;
+    let current = this.head;
+    while (current.nextNode !== null) {
+      current = current.nextNode;
+    }
+    return current;
+  }
   at(index) {
     if (index == 0) {
       return this.head;
@@ -89,9 +96,8 @@ list.append("mouse");
 list.prepend("rat");
 // console.log(list.size());
 // console.log(list.getHead());
+console.log(list.tail());
 // console.log(list.at(0));
 // console.log(list.contains("dog"));
 // console.log(list.find("dog"));
-console.log(list.toString());
-
-// console.log(list);
+// console.log(list.toString());
