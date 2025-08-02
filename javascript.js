@@ -11,7 +11,14 @@ class LinkedList {
     while (current.nextNode !== null) current = current.nextNode;
     current.nextNode = Node(value);
   }
-  prepend(value) {}
+  prepend(value) {
+    if (!this.head) {
+      this.head = Node(value);
+      return;
+    }
+    let currentHead = this.head;
+    this.head = Node(value, currentHead);
+  }
   size() {}
   head() {}
   tail() {}
@@ -31,5 +38,6 @@ const list = new LinkedList();
 list.append("dog");
 list.append("cat");
 list.append("mouse");
+list.prepend("rat");
 
 console.log(list);
